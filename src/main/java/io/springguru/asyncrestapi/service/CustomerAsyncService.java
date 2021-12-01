@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class CustomerAsyncService {
+public class CustomerAsyncService extends AbstractCustomerService {
 
     private static final String REMOTE_URL = "http://localhost:8080/";
     private final RestTemplate restTemplate;
@@ -26,7 +26,6 @@ public class CustomerAsyncService {
         log.info("retrieve customer names");
         var customerNames = restTemplate.getForObject(REMOTE_URL + "/names", CustomerNames.class);
         log.info("customerNames: " + customerNames);
-        Thread.sleep(1000);
         return CompletableFuture.completedFuture(customerNames);
     }
 
@@ -37,7 +36,6 @@ public class CustomerAsyncService {
         var customerAddresses =
             restTemplate.getForObject(REMOTE_URL + "/addresses", CustomerAddresses.class);
         log.info("customerAddresses: " + customerAddresses);
-        Thread.sleep(1000);
         return CompletableFuture.completedFuture(customerAddresses);
     }
 

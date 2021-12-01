@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class CustomerService {
+public class CustomerSyncService extends AbstractCustomerService {
 
     private static final String REMOTE_URL = "http://localhost:8080/";
     private final RestTemplate restTemplate;

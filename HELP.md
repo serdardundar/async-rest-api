@@ -1,24 +1,17 @@
-# Getting Started
+# Comparing Async and Sync Service Performance
 
 This service is developed to compare @Async annotated methods using 3rd party services.
 Sync test url: localhost:8080/testSync
 Async test url: localhost:8080/testAsync
 
+The only difference between two services is using @Async annotation on top of each public methods.
+When you run the project, you shall do two tests with above urls then the duration in milliseconds for each service will be shown in logs such as:
 
-### Reference Documentation
+`[nio-8080-exec-5] i.s.a.web.AsyncRestController            : Sync Duration: 4531`
 
-For further reference, please consider the following sections:
+and 
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.1/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.1/reference/htmlsingle/#boot-features-developing-web-applications)
+`[nio-8080-exec-1] i.s.a.web.AsyncRestController            : Async Duration: 1598`
 
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+as seen in the logs Async is faster 3 times than Sync methods.
 

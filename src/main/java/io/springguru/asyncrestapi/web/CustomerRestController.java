@@ -5,6 +5,7 @@ import io.springguru.asyncrestapi.model.CustomerAddresses;
 import io.springguru.asyncrestapi.model.CustomerName;
 import io.springguru.asyncrestapi.model.CustomerNames;
 import io.springguru.asyncrestapi.model.CustomerPhone;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import java.util.List;
 @Slf4j
 public class CustomerRestController {
 
+    @SneakyThrows
     @GetMapping("/addresses")
     public CustomerAddresses getAddresses() {
         log.info("get addresses Start");
@@ -38,10 +40,12 @@ public class CustomerRestController {
         addressList.add(customerAddress2);
 
         customerAddressesList.setCustomerAddresses(addressList);
+        Thread.sleep(500);
 
         return customerAddressesList;
     }
 
+    @SneakyThrows
     @GetMapping("/phones")
     public CustomerPhone getPhoneNumbers() {
         log.info("get phones Start");
@@ -53,10 +57,12 @@ public class CustomerRestController {
         phoneNumberList.add("+905325320001");
 
         customerPhone.setPhoneNumberList(phoneNumberList);
+        Thread.sleep(500);
 
         return customerPhone;
     }
 
+    @SneakyThrows
     @GetMapping("/names")
     public CustomerNames getCustomerName() {
         log.info("get names Start");
@@ -78,7 +84,7 @@ public class CustomerRestController {
         customerNameList.add(customerName2);
 
         customerNames.setCustomerNames(customerNameList);
-
+        Thread.sleep(500);
         return customerNames;
     }
 }
