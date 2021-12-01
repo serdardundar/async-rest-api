@@ -1,6 +1,9 @@
 # Getting Started
 
 This service is developed to compare @Async annotated methods using 3rd party services.
+Sync test url: localhost:8080/testSync
+Async test url: localhost:8080/testAsync
+
 
 ### Reference Documentation
 
